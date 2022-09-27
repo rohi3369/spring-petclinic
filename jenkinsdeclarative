@@ -1,17 +1,15 @@
 pipeline {
-    agent none 
+    agent any
     stages {
-        stage('learning') {
+        stage('test') {
             steps {
-                git url: 'https://github.com/rohi3369/spring-petclinic.git'  
-                branch : 'branch1sp'   
+                sh 'echo jenkins'
             }
         }
-        agent { 'openjdk:11-jdk' } 
-           stage('Test') {
+        stage('learning') {
             steps {
-                echo 'Hello, JDK'
-                sh 'java -version'
+                git url: 'https://github.com/rohi3369/spring-petclinic.git', 
+                    branch: 'master'
             }
         }
     }
