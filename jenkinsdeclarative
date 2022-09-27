@@ -3,7 +3,8 @@ pipeline {
     stages {
         stage('learning') {
             steps {
-                git url: 'https://github.com/rohi3369/spring-petclinic.git'     
+                git url: 'https://github.com/rohi3369/spring-petclinic.git'  
+                branch : 'branch1sp'   
             }
         }
         agent { 'openjdk:11-jdk' } 
