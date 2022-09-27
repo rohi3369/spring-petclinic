@@ -1,11 +1,10 @@
 pipeline {
     agent none 
     stages {
-        stage('Build') {
-            agent { 'maven:3.8.1-adoptopenjdk-11' } 
+        stage('learning') {
             steps {
-                echo 'Hello, Maven'
-                sh 'mvn --version'
+                git url: 'https://github.com/rohi3369/spring-petclinic.git', 
+                    branch: 'master
             }
         }
         stage('Example Test') {
