@@ -3,11 +3,11 @@ pipeline {
     stages {
         stage('learning') {
             steps {
-                git url: 'https://github.com/rohi3369/spring-petclinic.git'
+                git url: 'https://github.com/rohi3369/spring-petclinic.git'     
             }
         }
-        stage('Example Test') {
-            agent { 'openjdk:8-jre' } 
+           stage('Test') {
+            agent { 'openjdk:11-jdk' } 
             steps {
                 echo 'Hello, JDK'
                 sh 'java -version'
