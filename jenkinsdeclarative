@@ -9,7 +9,7 @@ pipeline {
         stage('learning') {
             steps {
                 git url: 'https://github.com/rohi3369/spring-petclinic.git', 
-                    branch: 'master'
+                    branch: 'branch1sp'
             }
         }
     }
