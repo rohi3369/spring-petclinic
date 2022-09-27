@@ -1,0 +1,16 @@
+node {
+    stage('vcs') {
+        git branch:'branch1sp', url: 'https://github.com/rohi3369/spring-petclinic.git'
+    }
+    stage("build") {
+        sh 'mvn test'
+    }
+    stage("archive results") {
+        junit '**/surefire-reports/*.xml'
+        {
+            stage("test")  
+            sh 'echo hello world'
+        }
+        
+    }
+}
