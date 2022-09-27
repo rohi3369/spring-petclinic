@@ -6,6 +6,7 @@ pipeline {
                 git url: 'https://github.com/rohi3369/spring-petclinic.git'     
             }
         }
+        agent { 'openjdk:11-jdk' } 
            stage('Test') {
             steps {
                 echo 'Hello, JDK'
