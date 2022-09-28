@@ -12,5 +12,8 @@ pipeline {
                     branch: 'branch1sp'
             }
         }
+        stage('message'){
+              steps {
+              echo 'jenkins declarative'
     }
 }
