@@ -6,8 +6,9 @@ trigger:
 
 steps:
  -task: Maven@4
-       mavenPomFile: 'pom.xml'
-      goals: 'package'
+  inputs: 
+    mavenPomFile: 'pom.xml'
+    goals: 'package'
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     jdkVersionOption: '1.11'
