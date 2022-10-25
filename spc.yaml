@@ -1,6 +1,5 @@
 ---
-pool:
- python
+pool:python
 
 trigger:
   - main
