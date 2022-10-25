@@ -1,7 +1,7 @@
 pool:
   vmImage: ubuntu-22.04
 
-pool: qtbuildpool
+pool: rohipool
 
 trigger:
   - main
