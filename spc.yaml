@@ -1,8 +1,7 @@
 ---
 pool:python
 
-trigger:
-  - main
+trigger:main
 
 steps:
  -task: Maven@4
