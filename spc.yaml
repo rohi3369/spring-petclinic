@@ -1,0 +1,15 @@
+trigger:
+- main
+
+pool: 
+  vmImage: ubuntu-latest
+
+jobs:
+- job: PreWork
+  steps:
+  - script: "Do pre-work"
+
+- job: PostWork
+  pool: windows-latest
+  steps:
+  - script: "Do post-work using a different hosted image"
