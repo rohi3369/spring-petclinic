@@ -1,7 +1,7 @@
 pool:
   vmImage: ubuntu-22.04
 
- task: Maven@3
+ task: Maven@
   inputs:
     mavenPomFile: 'pom.xml'
     publishJUnitResults: true
