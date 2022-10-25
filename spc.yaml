@@ -1,15 +1,17 @@
+pool: 
+  vmImage: ubuntu-20.04
+
 trigger:
 - main
 
-pool: 
-  vmImage: ubuntu-latest
+steps:
+  - task: "Maven@3"
+     inputs: 
+      mavenPomFile: 'pom.xml'
+      goals: 'package'
+      publishJUnitResults: yes
+      testResultsFiles: '**/surefire-reports/TEST-*.xml'
+      jdkVersionOption: '1.11'
 
-jobs:
-- job: PreWork
-  steps:
-  - script: "Do pre-work"
 
-- job: PostWork
-  pool: windows-latest
-  steps:
-  - script: "Do post-work using a different hosted image"
+-
