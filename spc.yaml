@@ -1,5 +1,6 @@
 pool:
   vmImage: ubuntu-22.04
+
  task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
