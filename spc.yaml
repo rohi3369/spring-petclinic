@@ -1,15 +1,20 @@
 pool:
   vmImage: ubuntu-22.04
 
+- task: Maven@3
+  inputs:
+    mavenPomFile: 'pom.xml'
+    publishJUnitResults: true
+    testResultsFiles: '**/surefire-reports/TEST-*.xml'
+    javaHomeOption: 'JDKVersion'
+    mavenVersionOption: 'Default'
+    mavenAuthenticateFeed: false
+    effectivePomSkip: false
+    sonarQubeRunAnalysis: false
+    jdkVersionOption: '1.11'
+
 trigger:
   - main
 
-steps:
-  - task: "Maven@3"
-     inputs: 
-      mavenPomFile: 'pom.xml'
-      goals: 'package'
-      publishJUnitResults: yes
-      testResultsFiles: '**/surefire-reports/TEST-*.xml'
-      jdkVersionOption: '1.11'
+
       
