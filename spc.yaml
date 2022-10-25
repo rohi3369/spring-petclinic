@@ -2,7 +2,6 @@
 pool:python
 
 trigger:main
-
 steps:
  -task: Maven@4
   inputs: 
