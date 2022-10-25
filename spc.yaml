@@ -6,8 +6,7 @@ trigger:
 
 steps:
  -task: Maven@4
-
-inputs:
+      inputs:
     mavenPomFile: 'pom.xml'
     goals: 'package'
     publishJUnitResults: true
