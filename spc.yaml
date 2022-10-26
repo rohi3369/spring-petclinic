@@ -4,7 +4,7 @@ pool:python
 trigger:main
 
 steps:
-  -task: Maven@4
+  task: Maven@4
   inputs: 
      mavenPomFile: 'pom.xml'
      goals: 'package'
