@@ -3,7 +3,7 @@ pool:python
 
 trigger:main
 
-steps:
+ steps:
   task: Maven@4
   inputs: 
      mavenPomFile: 'pom.xml'
