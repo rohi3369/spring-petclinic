@@ -1,8 +1,7 @@
----
 pool:Azure Pipeline
 
 trigger:main
-  
+
   steps:
     task: Maven@4
     inputs: 
