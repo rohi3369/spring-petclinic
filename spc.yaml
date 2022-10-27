@@ -2,11 +2,14 @@ pool:Azure Pipeline
 
 trigger:main
 
-  steps:
-    task: Maven@4
-    inputs: 
-      mavenPomFile: 'pom.xml'
-      goals: 'package'
-      publishJUnitResults: true
-      testResultsFiles: '**/surefire-reports/TEST-*.xml'
-      jdkVersionOption: '1.11'
+- task: Maven@4
+  inputs:
+    mavenPomFile: 'pom.xml'
+    publishJUnitResults: true
+    testResultsFiles: '**/surefire-reports/TEST-*.xml'
+    javaHomeOption: 'JDKVersion'
+    mavenVersionOption: 'Default'
+    mavenAuthenticateFeed: false
+    effectivePomSkip: false
+    sonarQubeRunAnalysis: false
+  
