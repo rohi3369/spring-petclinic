@@ -1,7 +1,6 @@
 pool: sairohith77
 
-trigger: 
--main,
+trigger: none
 
 steps:
 - task: Maven@4
