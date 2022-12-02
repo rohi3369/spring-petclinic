@@ -1,15 +1,16 @@
 pool: sairohith77
 
-trigger: main
+trigger: 
+-main
 
 steps:
- - task: Maven@4
-   inputs :
-   mavenPomFile: 'pom.xml'
-   publishJUnitResults: true,
-   testResultsFiles: '**/surefire-reports/TEST-*.xml'
-   javaHomeOption: 'JDKVersion'
-   mavenVersionOption: 'Default'
-   mavenAuthenticateFeed: 'false'
-   effectivePomSkip: 'false'
-   sonarQubeRunAnalysis: 'false'
+- task: Maven@4
+  inputs:
+    mavenPomFile: "pom.xml"
+    mavenOptions: "-Xmx3072m"
+    javaHomeOption: "JDKVersion"
+    jdkVersionOption: $(jdkVersion)
+    jdkArchitectureOption: "x64"
+    publishJUnitResults: true
+    testResultsFiles: "**/TEST-*.xml"
+    goals: "package"
