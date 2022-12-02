@@ -3,7 +3,7 @@ pool: soma
 trigger: none
 
 steps:
-- task: Maven@3
+- task: Maven@2
   inputs:
     mavenPomFile: 'pom.xml'
     publishJUnitResults: true
@@ -11,6 +11,5 @@ steps:
     javaHomeOption: 'JDKVersion'
     mavenVersionOption: 'Default'
     mavenAuthenticateFeed: false
-    effectivePomSkip: false
     sonarQubeRunAnalysis: false
     
