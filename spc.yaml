@@ -14,7 +14,7 @@ steps:
     sonarQubeRunAnalysis: false
 - task: Docker@2
   inputs:
-    command: build
-    Dockerfile: "./Dockerfile"
-    tags: "spc-azdev"   
+    command: 'build'
+    Dockerfile: './Dockerfile'
+    tags: 'spc-azdev'
     
