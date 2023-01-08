@@ -12,4 +12,9 @@ steps:
     mavenVersionOption: 'Default'
     mavenAuthenticateFeed: false
     sonarQubeRunAnalysis: false
+- task: Docker@2
+  inputs:
+    command: build
+    Dockerfile: "./Dockerfile"
+    tags: "spc-azdev"   
     
