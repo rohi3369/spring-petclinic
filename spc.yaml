@@ -6,10 +6,12 @@ steps:
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
+    goals: 'package'
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     javaHomeOption: 'JDKVersion'
-    mavenVersionOption: 'Default'
+    mavenVersionOption: 'path'
+    mavenDirectory: '/usr/share/maven'
     mavenAuthenticateFeed: false
     sonarQubeRunAnalysis: false
 - task: Docker@2
