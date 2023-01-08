@@ -17,9 +17,9 @@ pipeline {
            steps{
                 rtMavenDeployer (
                     id: "MAVEN_DEPLOYER",
-                    serverId: "Jfrogartifact",
-                    releaseRepo: 'sai-libs-release-local',
-                    snapshotRepo: 'sai-libs-snapshot-local' 
+                    serverId: "Jfrogartifact",  
+                    releaseRepo: 'testing-libs-release-local',
+                    snapshotRepo: 'testing-libs-snapshot-local' 
                     )
             }
         }
@@ -28,7 +28,7 @@ pipeline {
                 rtMavenRun (
                     tool: "MAVEN_TOOL", 
                     pom: 'pom.xml',
-                    goals: 'install',
+                    goals: 'clean install',
                     deployerId: "MAVEN_DEPLOYER"
                 )
              }
