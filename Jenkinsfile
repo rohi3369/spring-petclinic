@@ -8,11 +8,6 @@ pipeline {
             url: 'https://github.com/rohi3369/spring-petclinic.git'
             }
         }
-        // stage("Quality gate") {
-        //     steps {
-        //         waitForQualityGate abortPipeline: true
-        //     }
-        // }
         stage ('Artifactory config') {
            steps{
                 rtMavenDeployer (
@@ -45,6 +40,11 @@ pipeline {
                 withSonarQubeEnv('SonarQube') {
                     sh "mvn package sonar:sonar"
                 }
+            }
+        }
+        stage("Quality gate") {
+            steps {
+                waitForQualityGate abortPipeline: true
             }
         }
          stage('docker image build'){
