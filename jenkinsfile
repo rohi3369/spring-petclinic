@@ -1,0 +1,36 @@
+pipeline{
+    agent any
+    triggers { cron('0 * * * *')}
+    options { buildDiscarder(logRotator(numToKeepStr: '10'))}
+    environment {
+        REPO_URL="sai3369"
+        dockerhub=credentials('Dockerdockrhub')} /dockerhub reponame/
+    stages{
+        stage('vcs') {
+            steps{
+            git branch : 'main', 
+            url: 'https://github.com/rohi3369/spring-petclinic.git'
+            }
+        }
+        stage('build'){
+            tools{jdk 'JAVA'}
+            steps{
+                sh"""cd my-app
+                    mvn package"""
+            }
+        stage('build image'){
+            steps{
+                script{
+                    sh """ docker image build -t ${env.REPO_URL}/spc:${env.BUILD_NUMBER} .
+                    """
+                }
+            }
+        }
+        stage('Pushing image') {
+            steps{
+                sh"docker image push ${env.REPO_URL}/spc:${env.BUILD_NUMBER}"
+            }       
+        }
+    }
+}
+}
