@@ -23,6 +23,7 @@ pipeline{
         }
         stage('Pushing image') {
             steps{
+                sh'echo $dockerhub_PSW | docker login -u $dockerhub_USR --password-stdin'
                 sh"docker image push ${env.REPO_URL}/spc:${env.BUILD_NUMBER}"
             }       
         }
