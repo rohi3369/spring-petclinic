@@ -4,7 +4,8 @@ pipeline{
     options { buildDiscarder(logRotator(numToKeepStr: '10'))}
     environment {
         REPO_URL="sai3369"
-        dockerhub=credentials('Dockerdockrhub')} /dockerhub reponame/
+        dockerhub=credentials('dockerhub')
+} /dockerhub reponame/
     stages{
         stage('vcs') {
             steps{
