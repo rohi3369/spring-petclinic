@@ -1,5 +1,5 @@
 pipeline{
-    agent any
+    agent {label 'mvn'}
     triggers { cron('0 * * * *')}
     options { buildDiscarder(logRotator(numToKeepStr: '10'))}
     environment {
@@ -13,12 +13,6 @@ pipeline{
             url: 'https://github.com/rohi3369/spring-petclinic.git'
             }
         }
-        stage('build'){
-            tools{jdk 'JAVA'}
-            steps{
-                sh"""cd my-app
-                    mvn package"""
-            }
         stage('build image'){
             steps{
                 script{
@@ -34,4 +28,4 @@ pipeline{
         }
     }
 }
-}
+
