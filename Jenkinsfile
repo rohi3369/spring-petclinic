@@ -1,10 +1,6 @@
 pipeline {
-    agent {label 'mvn'}
-    triggers { cron('0 * * * *')}
-    options { buildDiscarder(logRotator(numToKeepStr: '10'))}
-    environment {
-        REPO_URL="sai3369"
-        dockerhub=credentials('Docker')} /dockerhub reponame/
+            agent {label 'mvn'}
+    triggers { pollSCM('* * * * *') }
     stages {
         stage ('vcs') {
             steps{
